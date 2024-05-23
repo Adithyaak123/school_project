@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        input:hover {
+            background-color: lawngreen;
+        }
+
+        input {
+
+            height: 30px;
+            margin: 5px;
+        }
+
+        body {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            background-image: url('static/images/pexels-achira-751373.jpg');
+            background-size: cover;
+        }
+
+        #button1 {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+        
+
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        .column {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Teacher Registration Form</h1>
+
+    <form action="regteacher" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td class="column">
+                    <label for="">Name:</label>
+                </td>
+                <td>
+                    <input type="text" name="nm" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" name="em"  required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Username:</label>
+                </td>
+                <td>
+                    <input type="text" name="uname"  required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="psw"  required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Phone Number:</label>
+                </td>
+                <td>
+                    <input type="tel" name="mob"  required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Subject:</label>
+                </td>
+                <td>
+                    <input type="text" name="sub"  required><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Register" id="button1" >
+                </td>
+            </tr>
+        </table>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            height: 30px;
+            margin: 5px;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            background-color: green;
+            color: white;
+        }
+
+        .column {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body style="background-color: yellow;" ;>
+    <h1 style="text-align: center;">Edit Teacher Details</h1>
+
+    <form action="/editteacher/{{a1.id}}" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td class="column">
+                    <label for="">Name:</label>
+                </td>
+                <td>
+                    <input type="text" name="nm" value="{{a1.Name}}" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" name="em" value="{{a1.Email}}" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Username:</label>
+                </td>
+                <td>
+                    <input type="text" name="uname" value="{{a1.Username}}" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="psw" value="{{a1.Password}}" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Phone Number:</label>
+                </td>
+                <td>
+                    <input type="text" name="ph" value="{{a1.Phone_no}}" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Subject:</label>
+                </td>
+                <td>
+                    <input type="text" name="subj" value="{{a1.Subject}}" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Edit" class="button">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

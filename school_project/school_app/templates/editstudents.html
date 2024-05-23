@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        #in {
+            height: 30px;
+            margin: 5px;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            color: red;
+            background-color: aqua;
+            font-weight: bold;
+        }
+
+        .column {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body style="background-color: yellow;">
+    <h1 style="text-align: center;">Edit student Details</h1>
+
+    <form action="/editstudents/{{a1.id}}" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td class="column">
+                    <label for="">Name:</label>
+                </td>
+                <td>
+                    <input type="text" name="nm" value="{{a1.Name}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" name="em" value="{{a1.Email}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Username:</label>
+                </td>
+                <td>
+                    <input type="text" name="uname" value="{{a1.Username}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="psw" value="{{a1.Password}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Class:</label>
+                </td>
+                <td>
+                    <input type="text" name="cls" value="{{a1.cls}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Gender:</label>
+                </td>
+                <td>
+                    <input type="radio" name="gend" value="Male" {% if a1.Gender == 'Male' %} checked {% endif %} required>Male
+                </td>
+                <div style="position: relative;left: 150px;">
+                    <td>
+                        <input type="radio" name="gend" value="Female" {% if a1.Gender == 'Female' %} checked {% endif %} required>Female
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Phone Number:</label><br>
+                </td>
+                <td>
+                    <input type="tel" name="ph" value="{{a1.Phone_no}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Address:</label>
+                </td>
+                <td>
+                    <textarea id="" cols="20" rows="10" name="ad" style="resize: none;" required>{{a1.Address}}</textarea><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Edit" class="button">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

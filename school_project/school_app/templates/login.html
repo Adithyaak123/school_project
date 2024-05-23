@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('static/images/pexels-pixabay-268533.jpg');
+            background-size: cover;
+        }
+        h1{
+            font-size: 40px;
+            color: blue;
+            position: relative;
+            top: 30px;
+        }
+        .div1{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            left: 600px;
+            color: red;
+            font-size: 20px;
+        }
+        .button{
+            width: 100px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            font-size: 20px;
+            margin-left: 13px;
+            border: solid 3px greenyellow;
+        }
+    </style>
+  
+</head>
+<body >
+    <form action="login" method="POST" style="text-align: center;">
+        <h1>Login</h1>
+        {% csrf_token %}
+        <div  class="div1">
+        <br><br>
+        Username: <input type="text" name="uname" style="height:30px;" required> <br><br>
+        Password: <input type="password" name="psw" style="height:30px;" required> <br><br>
+    
+        <input type="submit" value="Login" class="button">
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        #in {
+            height: 30px;
+            margin: 5px;
+            font-size: 18px;
+        }
+
+        body {
+            font-size: 20px;
+            background-image: url('static/images/pexels-achira-751373.jpg');
+            color: white;
+            background-size: cover;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            color: red;
+            background-color: black;
+            font-weight: bold;
+        }
+
+        .column {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edit Your Details</h1>
+    <form action="editstudprofile1" method="POST">
+        {% csrf_token %}
+        {% for i in a1 %}
+
+        <table>
+            <tr>
+                <td class="column">
+                    <label for="">Name:</label>
+                </td>
+                <td>
+                    <input type="text" name="nm" value="{{i.Name}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" name="em" value="{{i.Email}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Username:</label>
+                </td>
+                <td>
+                    <input type="text" name="uname" value="{{i.Username}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="psw" value="{{i.Password}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Class:</label>
+                </td>
+                <td>
+                    <input type="text" name="cls" value="{{i.cls}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Gender:</label>
+                </td>
+                <td>
+                    <input type="radio" name="gend" value="Male" {% if i.Gender == 'Male' %} checked {% endif %} required>Male
+                </td>
+                <div style="position: relative;left: 150px;">
+                    <td>
+                        <input type="radio" name="gend" value="Female" {% if i.Gender == 'Female' %} checked {% endif %} required>Female
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Phone Number:</label><br>
+                </td>
+                <td>
+                    <input type="tel" name="ph" value="{{i.Phone_no}}" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Address:</label>
+                </td>
+                <td>
+                    <textarea id="in" cols="20" rows="10" name="ad" style="resize: none;" required>{{i.Address}}</textarea><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="SUBMIT" class="button">
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        #submit1 {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+            border-radius: 15px;
+            border: 3px solid blue;
+        }
+
+        #in {
+            height: 30px;
+        }
+
+        textarea:hover,
+        #in:hover,
+        #submit1:hover {
+            background-color: greenyellow;
+        }
+
+        body {
+            background-image: url('static/images/pexels-achira-751373.jpg');
+            font-size: 20px;
+            background-size: cover;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        .column {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Registration Form</h1>
+
+    <form action="studregister" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td class="column">
+                    <label for="">Name:</label>
+                </td>
+                <td>
+                    <input type="text" name="nm" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" name="em" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Username:</label>
+                </td>
+                <td>
+                    <input type="text" name="uname" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="psw" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Class:</label>
+                </td>
+                <td>
+                    <input type="text" name="cls" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Gender:</label>
+                </td>
+                <td>
+                    <input type="radio" name="gend" value="Male" required>Male
+                </td>
+                <td>
+                    <input type="radio" name="gend" value="Female" required>Female
+                </td>
+
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Phone Number:</label><br>
+                </td>
+                <td>
+                    <input type="tel" name="ph" id="in" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Address:</label>
+                </td>
+                <td>
+                    <textarea id="" cols="20" rows="10" name="ad" style="resize: none;" required></textarea><br>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Register" id="submit1">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

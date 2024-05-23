@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            height: 30px;
+            margin: 5px;
+            font-size: 18px;
+        }
+
+        body {
+            background-image: url('static/images/pngtree-blue.jpg');
+            background-size: cover;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            color: red;
+            background-color: yellow;
+            font-weight: bold;
+            border: 3px solid green;
+        }
+
+        .column {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">My Details</h1>
+    <form action="Editteacherprofile" method="POST">
+        {% csrf_token %}
+        {% for i in a1 %}
+        <table>
+            <tr>
+                <td class="column">
+                    <label for="">Name:</label>
+                </td>
+                <td>
+                    <input type="text" value="{{i.Name}}" readonly ><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" value="{{i.Email}}" readonly><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Username:</label>
+                </td>
+                <td>
+                    <input type="text" value="{{i.Username}}" readonly ><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Password:</label>
+                </td>
+                <td>
+                    <input type="password" value="{{i.Password}}" readonly ><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Phone Number:</label><br>
+                </td>
+                <td>
+                    <input type="tel" value="{{i.Phone_no}}" readonly ><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="column">
+                    <label for="">Subject:</label>
+                </td>
+                <td>
+                    <input type="text" value="{{i.Subject}}" readonly ><br>
+                </td>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="EDIT" class="button">
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </form>
+</body>
+
+</html>
