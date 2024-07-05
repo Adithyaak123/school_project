@@ -17,22 +17,29 @@
 
         h1 {
             text-align: center;
-            color: blue;
-            text-decoration-line: underline;
+            /* color: blue; */
+            /* text-decoration-line: underline;
             text-decoration-style: dashed;
-            text-decoration-color: lawngreen;
+            text-decoration-color: lawngreen; */
         }
 
         a {
             color: aqua;
             text-decoration: none;
         }
+        .home{
+            margin-left: 300px;
+            font-size: 30px;
+            color:yellow;
+        }
     </style>
 </head>
 
 <body>
     <br>
-    <h1>Student Home Page</h1>
+    <!-- <h1><a href="login" class="text-decoration-none">Home</a>/Student Home Page</h1> -->
+    <a href="login" class="home" >Home</a><h1 > <i class="txt-dark"> Welcome <span class="text-primary">{{student.Name}}</span></i></h1><br>
+
     <br>
     <div class="h3  text-center ">
         <a href="studprofile">view My profile</a><br><br>

@@ -15,20 +15,25 @@ def login1(request):
         print(user)
         if user is not None and user.is_superuser==1:
             login(request,user)
-            return render(request,'admin_home.html')
+            u=user.username
+            return render(request,'admin_home.html',{'name':u})
         elif Student.objects.filter(Username=u,Password=p).exists():
             x=Student.objects.filter(Username=u,Password=p)
             for i in x:
                 if i.value==1:
                     request.session['stud_id']=i.id
-                    return render(request,'stud_home.html')
+                    s=request.session['stud_id']
+                    student=Student.objects.get(id=s)
+                    return render(request,'stud_home.html',{'student':student})
                 else:
                     return redirect(login1)
         elif Teacher.objects.filter(Username=u,Password=p).exists():
             y=Teacher.objects.filter(Username=u,Password=p)
             for i in y:
                 request.session['teacher_id']=i.id
-                return render(request,'teacher_home.html')
+                t=request.session['teacher_id']
+                teacher=Teacher.objects.get(id=t)
+                return render(request,'teacher_home.html',{'teacher':teacher})
 
         return HttpResponse("not login")
     else:
@@ -36,6 +41,14 @@ def login1(request):
     
 def logout(request):
     return redirect(login1)
+def adminhome(request):
+    return render(request,'admin_home.html')
+def teacherhome(request):
+    return render(request,'teacher_home.html')
+def studenthome(request):
+    return render(request,'stud_home.html')
+def Home(request):
+    return render(request,'Homepage.html')
         
 def regteacher(request):
     if request.method=='POST':

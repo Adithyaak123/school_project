@@ -17,22 +17,29 @@
 
         h1 {
             text-align: center;
-            color: blue;
-            text-decoration-line: underline;
-            text-decoration-style: dashed;
-            text-decoration-color: lawngreen;
+            /* color: blue; */
+            /* text-decoration-line: underline;
+            text-decoration-style: dashed; */
+            /* text-decoration-color: lawngreen; */
         }
 
         a {
             color: aqua;
             text-decoration: none;
         }
+        .home{
+            margin-left: 300px;
+            font-size: 30px;
+            color:yellow;
+        }
     </style>
 </head>
 
 <body>
     <br>
-    <h1>Teacher Home Page</h1><br>
+    <!-- <h1><a href="login">Home</a>/Teacher Home Page</h1><br> -->
+    <a href="login" class="home" >Home</a><h1 > <i class="txt-dark"> Welcome <span class="text-primary">{{teacher.Name}}</span></i></h1><br>
+
     <div class="h3  text-center ">
         <a href="Teacherprofile">View My profile</a><br><br>
         <a href="viewstudent">View Student Details</a><br><br>

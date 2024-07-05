@@ -14,6 +14,9 @@ urlpatterns = [
     path('deletestudents/<int:did>',views.deletestudents,name='deletestudents'),
     path('deleteteacher/<int:did>',views.deleteteacher,name='deleteteacher'),
     path('',views.Homepage,name='homepage'),
+    path('adminhome',views.adminhome,name='adminhome'),
+    path('teacherhome',views.teacherhome,name='teacherhome'),
+    path('studhome',views.studenthome,name='studenthome'),
     path('managestudent',views.managestudent,name='managestudent'),
     path('studviewteacher',views.studviewteacher,name='studviewteacher'),
     path('logout',views.logout,name='logout'),
@@ -23,6 +26,7 @@ urlpatterns = [
     path('Teacherprofile',views.teacherprofile,name='teacherprofile'),
     path('Editteacherprofile',views.Editteacherprofile,name='editteacherprofile'),
     path('editteacherprofile1',views.Editteacherprofile1,name='editteacherprofile1'),
+    path('home',views.Home,name='home'),
 
 
  
