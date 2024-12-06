@@ -49,6 +49,12 @@
         .column {
             text-align: right;
         }
+        .container{
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            background-color: blue;
+        }
     </style>
 </head>
 
@@ -112,8 +118,18 @@
                     <input type="submit" value="Register" id="button1" >
                 </td>
             </tr>
-        </table>
-
+        </table></form>
+        <div class="container">
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
 </body>
 
 </html>

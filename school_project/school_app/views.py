@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Teacher,Student
 from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
+from django.contrib import messages
 
 
 # Create your views here.
@@ -26,6 +27,7 @@ def login1(request):
                     student=Student.objects.get(id=s)
                     return render(request,'stud_home.html',{'student':student})
                 else:
+                    messages.info(request,f'Admin not accepted you!')
                     return redirect(login1)
         elif Teacher.objects.filter(Username=u,Password=p).exists():
             y=Teacher.objects.filter(Username=u,Password=p)
@@ -34,8 +36,10 @@ def login1(request):
                 t=request.session['teacher_id']
                 teacher=Teacher.objects.get(id=t)
                 return render(request,'teacher_home.html',{'teacher':teacher})
+        else:
+            messages.info(request,f'invalid username and password')
+            return redirect(login1)
 
-        return HttpResponse("not login")
     else:
            return render(request,'login.html')
     
@@ -59,7 +63,8 @@ def regteacher(request):
         password=request.POST['psw']
         subject=request.POST['sub']
         Teacher.objects.create(Name=name,Email=email,Phone_no=mobile,user_type="Teacher",value=1,Username=uname,Password=password,Subject=subject)
-        return render(request,"success.html")
+        messages.info(request,f'registered')
+        return redirect(regteacher)
     else:
          return render(request,'teacher_register.html')
 def studregister(request):
@@ -73,7 +78,8 @@ def studregister(request):
         phon_no=request.POST['ph']
         address=request.POST['ad']
         Student.objects.create(Name=name,Email=email,Gender=gender,Address=address,Phone_no=phon_no,user_type="student",value=0,Username=uname,Password=password,cls=class1)
-        return render(request,"success.html")
+        messages.info(request,f'registered')
+        return redirect(studregister)
         # return HttpResponse("okk")
         
     else:
