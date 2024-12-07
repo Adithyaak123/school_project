@@ -144,7 +144,7 @@ def deleteteacher(request,did):
     x.delete()
     return redirect(viewteacher)
 def Homepage(request):
-    return render(request,'Homepage.html')
+    return render(request,'index.html')
 def managestudent(request):
     a=Student.objects.all()
     return render(request,'managestudent.html',{'a1':a})
